@@ -79,10 +79,11 @@ formatter project option to "small". */
 static void prvSetupHardware( void );
 
 extern void Task1 (void*);
-// extern void Task2 (void*);
-// extern void Task3 (void*);
+extern void Task2 (void*);
+extern void Task3 (void*);
 
-SemaphoreHandle_t Sempahore1;
+SemaphoreHandle_t Semaphore1;
+SemaphoreHandle_t Semaphore2;
 
 /*-----------------------------------------------------------*/
 
@@ -94,8 +95,10 @@ int main( void )
 	prvSetupHardware();
 
 	xTaskCreate(&Task1, "Tarea 1", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
-	// xTaskCreate(&Task2, "Tarea 2", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
-	Sempahore1 = xSemaphoreCreateBinary();
+	xTaskCreate(&Task2, "Tarea 2", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
+	xTaskCreate(&Task3, "Tarea 3", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
+	Semaphore1 = xSemaphoreCreateBinary();
+	Semaphore2 = xSemaphoreCreateCounting(2,2);
 
 	vTaskStartScheduler();
 	return 0;
