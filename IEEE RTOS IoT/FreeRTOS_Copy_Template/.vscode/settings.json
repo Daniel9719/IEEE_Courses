@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "*.cmd": "asm-collection",
+        "*.tcl": "ini",
+        "task.h": "c",
+        "freertos.h": "c",
+        "sysctl.h": "c",
+        "uartstdio.h": "c",
+        "interrupt.h": "c",
+        "rom.h": "c",
+        "hw_memmap.h": "c",
+        "pin_map.h": "c",
+        "hw_ints.h": "c",
+        "stdio.h": "c",
+        "rom_map.h": "c",
+        "ROM_MAP.H": "cpp"
+    }
+}
