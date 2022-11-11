@@ -14,6 +14,8 @@
         "queue_main.h": "c",
         "stdint.h": "c",
         "string.h": "c",
-        "semphr.h": "c"
+        "semphr.h": "c",
+        "uartstdio.h": "c",
+        "hw_ints.h": "c"
     }
 }
