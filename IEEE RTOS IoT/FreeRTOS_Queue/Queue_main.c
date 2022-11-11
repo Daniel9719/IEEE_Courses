@@ -18,8 +18,8 @@ void Task1 (void* args){
     }; 
     int i = 0;
     for(i=0; i<5; i++){
-        UARTprintf("Tarea 1 manda valor %d\n", num);
         xQueueSend(Queue1, &num, portMAX_DELAY);
+        UARTprintf("Tarea 1 manda valor %d\n", num);
         num++;
         // UARTprintf("Tarea 1 manda valor %d de ID %s\n", PPG.Data_Val, PPG.ID_Val);
         // xQueueSend(Queue1, &PPG, portMAX_DELAY);
@@ -31,8 +31,7 @@ void Task1 (void* args){
 void Task2 (void* args){
     uint8_t num = 0;
     struct Data_t RxData;
-    int i = 0;
-    for(i=0; i<5; i++){
+    while(1){
         xQueueReceive(Queue1, &num, portMAX_DELAY);
         UARTprintf("Tarea 2 recibe valor %d\n", num);
         // xQueueReceive(Queue1, &RxData, portMAX_DELAY);
@@ -46,6 +45,7 @@ void Task2 (void* args){
 }
 
 void Task3 (void* args){
+    int i = 0;
     uint8_t num = 44;
     struct Data_t EDA = {
         .ID_Val = "EDA",
@@ -53,13 +53,13 @@ void Task3 (void* args){
         // .Data_Val = HIGH
     };
     
-    while(1){
-        UARTprintf("Tarea 3 manda valor %d al frente de la cola\n", num);
+    for(i=0; i<5; i++){
         xQueueSendToFront(Queue1, &num, portMAX_DELAY);
+        UARTprintf("Tarea 3 manda valor %d al frente de la cola\n", num);
         // UARTprintf("Tarea 3 manda valor %d al frente de la cola desde ID %s\n",
         //             EDA.Data_Val, EDA.ID_Val);
         // xQueueSendToFront(Queue1, &EDA, portMAX_DELAY);
-        vTaskDelay(pdMS_TO_TICKS(100));
+        // vTaskDelay(pdMS_TO_TICKS(100));
 
         // xQueuePeek(Queue2, &num, portMAX_DELAY);
         // UARTprintf("Tarea 3 recibe valor %d del buzon\n", num);

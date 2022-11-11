@@ -95,10 +95,11 @@ int main( void )
 	/* Prepare the hardware to run this demo. */
 	prvSetupHardware();
 
-	xTaskCreate(&Task1, "Tarea 1", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
-	xTaskCreate(&Task2, "Tarea 2", configMINIMAL_STACK_SIZE, NULL, 3, NULL);
-	xTaskCreate(&Task3, "Tarea 3", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
-	Queue1 = xQueueCreate(3, sizeof(struct Data_t));
+	xTaskCreate(&Task1, "Tarea 1", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
+	xTaskCreate(&Task2, "Tarea 2", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
+	// xTaskCreate(&Task3, "Tarea 3", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
+	Queue1 = xQueueCreate(2, sizeof(uint8_t));
+	// Queue1 = xQueueCreate(3, sizeof(struct Data_t));
 	Queue2 = xQueueCreate(1, sizeof(float));
 
 
