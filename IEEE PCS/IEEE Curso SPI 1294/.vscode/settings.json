@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.cmd": "asm-collection",
+        "*.tcl": "ini",
+        "gpio.h": "c"
+    }
+}

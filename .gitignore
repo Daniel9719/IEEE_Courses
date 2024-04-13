@@ -4,3 +4,6 @@ RemoteSystemsTempFiles
 Debug
 dvt
 FreeRTOS_Copy_Template
+*.ccxml
+*.prefs
+*.launch

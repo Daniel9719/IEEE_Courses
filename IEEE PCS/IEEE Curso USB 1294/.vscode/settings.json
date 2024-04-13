@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.cmd": "asm-collection",
+        "*.tcl": "ini",
+        "usbdevice.h": "c",
+        "usbdhid.h": "c",
+        "dap_config.h": "c",
+        "dap.h": "c",
+        "gpio.h": "c",
+        "stdint.h": "c",
+        "stdio.h": "c"
+    }
+}
